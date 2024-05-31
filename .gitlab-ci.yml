@@ -1,21 +1,18 @@
-image: node:latest
+name: auto-publish-to-npm
+on:
+  push:
+    branches:
+      - master
 
-stages:
-  - publish
-
-cache: # 缓存
-  paths:
-    - node_modules
-    - build
-
-publish:
-  stage: publish
-  variables:
-    NPM_TOKEN: ${AUTH_TOKEN}
-
-  script:
-    - npm publish
-    - echo "-- publish completed succesfully"
-  only:
-    - master
-    - tags
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

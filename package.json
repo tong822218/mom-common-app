@@ -1,6 +1,6 @@
 {
   "name": "mom-common-app",
-  "version": "1.0.82",
+  "version": "1.0.83",
   "private": false,
   "main": "packages/index.js",
   "scripts": {
@@ -30,8 +30,5 @@
     "html2canvas": "^1.4.1",
     "qrcode.vue": "1.7.0",
     "vue-barcode": "^1.3.0"
-  },
-  "publishConfig": {
-    "@cosmoplat-mom:registry": "http://gitlab.cosmoplat.com/api/v4/projects/1991/packages/npm/"
   }
 }
