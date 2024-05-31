@@ -1,0 +1,21 @@
+image: node:latest
+
+stages:
+  - publish
+
+cache: # 缓存
+  paths:
+    - node_modules
+    - build
+
+publish:
+  stage: publish
+  variables:
+    NPM_TOKEN: ${AUTH_TOKEN}
+
+  script:
+    - npm publish
+    - echo "-- publish completed succesfully"
+  only:
+    - master
+    - tags
