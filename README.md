@@ -1,9 +1,18 @@
+## 1.0.83
+
+从此版本切换到了 github.
+
 ## 1.0.81
-m-list-item inputNumber 组件增加 min max属性
+
+m-list-item inputNumber 组件增加 min max 属性
+
 ## 1.0.78
-修复msearchSelect 回车事件会触发两次的问题
+
+修复 msearchSelect 回车事件会触发两次的问题
+
 ## 1.0.77
-修复mscrolllist 没有更多时候显示加载更多的问题
+
+修复 mscrolllist 没有更多时候显示加载更多的问题
 
 ## 1.0.61
 
