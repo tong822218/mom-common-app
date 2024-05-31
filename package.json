@@ -8,11 +8,12 @@
     "build": "vue-cli-service build --target lib --name mom-common-app --dest lib ./packages/index.js",
     "lint": "vue-cli-service lint",
     "yalc": "yalc push",
-    "semantic-release": "semantic-release"
+    "version": "node ./updateVersion.js"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "5.0.1",
     "@vue/cli-service": "5.0.1",
+    "pre-commit": "^1.2.2",
     "prettier": "2.5.1",
     "sass": "1.49.8",
     "sass-loader": "12.6.0",
