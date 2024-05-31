@@ -39,7 +39,10 @@ jobs:
       # 发布
       - name: Running Publish
         run: npm publish
-        run: cnpm sync mom-common-app   
+      # 同步到cnpm
+      - name: sync
+        run: cnpm sync mom-common-app
+
         env:
           # NPM_TOKEN is access token
          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
