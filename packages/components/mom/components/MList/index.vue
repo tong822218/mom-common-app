@@ -1,5 +1,6 @@
 <template>
   <u-list v-bind="$attrs" v-on="$listeners" height="100%">
+    
     <view v-if="list && list.length">
       <view v-for="(item, index) in list" :key="index">
         <slot :item="item" :index="index"></slot>
