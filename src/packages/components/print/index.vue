@@ -1,19 +1,5 @@
 <template>
   <view class="calm-printer">
-    <view class="preview">
-      <view v-for="(item, index) in dataSource" :key="index">
-        <view v-for="qrItem in item.picList" :key="qrItem.id">
-          <v-qr
-            v-if="qrItem.component === 'v-qr'"
-            :element="qrItem"
-            :propValue="qrItem.field ? item[qrItem.field] : qrItem.propValue"
-            :id="qrItem.id + index"
-            :style="{ width: qrItem.style.width + 'px', height: qrItem.style.height + 'px' }"
-          ></v-qr>
-        </view>
-      </view>
-    </view>
-
     <view class="calm-printer-btn">
       <slot name="device">
         <u-button class="mr20rpx" type="primary" plain shape="circle" @click="searchDevice" v-if="showChangeDevice">更换设备</u-button>
@@ -74,9 +60,6 @@
 const http = uni.$u.http
 import { getTemplateListByProduct, getTemplateDetail } from './api.js'
 import ChoseTemplate from './ChoseTemplate.vue'
-import vBarcode from './v-barcode.vue'
-import vQr from './v-qr.vue'
-import { dom2base64, drawCanvas } from './utils.js'
 export default {
   name: 'CalmPrinter',
   components: { vBarcode, vQr, ChoseTemplate },

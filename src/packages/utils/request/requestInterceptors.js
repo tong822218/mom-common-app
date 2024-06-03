@@ -14,7 +14,7 @@ export default (store) => {
       }
       config.header = {
         ...header,
-        lang: store.getters.language
+        lang: store?.getters.language || 'zh-Hans'
       }
       const { loading } = config.custom
       loading

@@ -1,0 +1,35 @@
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+@import "@/packages/components/uview-ui/theme.scss";
+$card-odd-bgcolor: #eaeaea;
+$card-even-bgcolor: #fff;
+$app-bgcolor: #f5f5f5;
+body {
+    background: $app-bgcolor;
+    // font-size: 28rpx;
+}
+.uni-system-preview-image {
+    z-index: 99999 !important;
+}
+
+.exe-group-container {
+    position: absolute;
+    left: 80rpx;
+    top: 0;
+    width: 650rpx;
+    background: #ffffff;
+    border-radius: 17rpx 17rpx 17rpx 17rpx;
+    border: 2rpx solid #0066ff;
+    min-height: 200rpx;
+    .group-title {
+      padding: 8rpx 12rpx;
+      color: #fff;
+      margin-top: -4rpx;
+      font-size: 24rpx;
+      background: #0066ff;
+      border-radius: 17rpx 0rpx 17rpx 0rpx;
+    }
+}

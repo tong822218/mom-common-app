@@ -1,6 +1,5 @@
 const http = uni.$u.http
-import baseUrl from '@/axios/url'
-const { adminUrl } = baseUrl()
+import { adminUrl} from '../../global.js'
 /**
  * 参数说明
  * @param {String} method 请求方法必须大写[GET | POST | PUT | DELETE | CONNECT | HEAD | OPTIONS | TRACE]

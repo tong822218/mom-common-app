@@ -13,8 +13,7 @@
 </template>
 
 <script>
-import baseUrl from '@/axios/url'
-const { adminUrl } = baseUrl()
+import { adminUrl } from '../../../../global.js'
 export default {
   name: 'MListItemImgList',
   props: {

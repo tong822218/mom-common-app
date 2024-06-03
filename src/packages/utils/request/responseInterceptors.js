@@ -4,7 +4,7 @@
  */
 import { hideKeyboard } from '../../utils/common/hideKeyboard'
 
-export default (store) => {
+export default () => {
   uni.$u.http.interceptors.response.use(
     (res) => {
       const { loading } = res.config.custom

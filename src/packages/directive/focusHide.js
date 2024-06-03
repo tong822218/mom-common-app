@@ -1,4 +1,4 @@
-import store from '@/store'
+import { store } from '../global.js'
 export default {
   inserted(el) {
     // 设置resize监听方法

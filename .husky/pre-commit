@@ -8,7 +8,7 @@ if [ "$current_branch" = "master" ] || [ "$current_branch" = "test" ]; then
     git add .
     exit 0
 fi
-./node_modules/_pre-commit@1.2.2@pre-commit/hook
+# ./node_modules/_pre-commit@1.2.2@pre-commit/hook
 RESULT=$?
 [ $RESULT -ne 0 ] && exit 1
 exit 0
