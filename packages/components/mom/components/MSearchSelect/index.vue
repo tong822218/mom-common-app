@@ -170,7 +170,8 @@ export default {
       searchListDomBottom: 0,
       searchListDomHeight: 0,
       inputRect: {},
-      selectEndIndex: 0
+      selectEndIndex: 0,
+      noShowSearch:false // 临时变量，用来临时标志一下，此次聚焦是由于全选文字造成，不应该显示搜索下拉框
     }
   },
   computed: {
@@ -249,9 +250,9 @@ export default {
     },
 
     // 文本框聚焦事件
-    inputFocus(noShowSearch) {
+    inputFocus() {
       this.focus = true
-      if (this.noSearch || noShowSearch === false) return
+      if (this.noSearch || this.noShowSearch) return
       setTimeout(() => {
         this.showDrop()
         this.getSearchListRect()
@@ -325,9 +326,11 @@ export default {
       }
     },
     selectAllText() {
+      this.noShowSearch = true
       this.inputFocus(false)
       setTimeout(() => {
         this.selectEndIndex = this.value.length
+        this.noShowSearch = false
       }, 100)
     },
 
