@@ -4,7 +4,6 @@ const packageJsonPath = './package.json';
 
 // 读取package.json文件
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath));
-
 // 获取当前版本号
 const currentVersion = packageJson.version;
 
