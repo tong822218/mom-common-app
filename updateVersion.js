@@ -19,5 +19,5 @@ packageJson.version = versionParts.join('.');
 fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
 // 输出更新后的版本号
-console.log(`版本号已更新为 ${packageJson.version}`);
+console.log(`版本号已更新为: ${packageJson.version}`);
 
