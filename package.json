@@ -1,6 +1,6 @@
 {
   "name": "mom-common-app",
-  "version": "1.0.90",
+  "version": "1.0.91",
   "private": false,
   "main": "packages/index.js",
   "scripts": {
@@ -8,11 +8,13 @@
     "build": "vue-cli-service build --target lib --name mom-common-app --dest lib ./packages/index.js",
     "lint": "vue-cli-service lint",
     "yalc": "yalc push",
-    "version": "node ./updateVersion.js"
+    "version": "node ./updateVersion.js",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "5.0.1",
     "@vue/cli-service": "5.0.1",
+    "husky": "^9.0.11",
     "pre-commit": "^1.2.2",
     "prettier": "2.5.1",
     "sass": "1.49.8",

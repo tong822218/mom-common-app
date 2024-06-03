@@ -1,0 +1,14 @@
+
+#!/bin/bash
+# 获取当前分支的名称
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+# 判断是否为master 或者test分支 执行更新版本号操作
+if [ "$current_branch" = "master" ] || [ "$current_branch" = "test" ]; then
+    npm run version
+    git add .
+    exit 0
+fi
+./node_modules/_pre-commit@1.2.2@pre-commit/hook
+RESULT=$?
+[ $RESULT -ne 0 ] && exit 1
+exit 0
