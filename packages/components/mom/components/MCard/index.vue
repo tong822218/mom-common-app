@@ -1,6 +1,7 @@
 <template>
   <view class="m-card bg-#fff py-33rpx text-#333 text-29rpx">
     <view class="card-header" :class="{ 'left-icon': showLeftIcon }" @click="collapseHandler">
+      
       <view class="w-full between-center pr33rpx">
         <slot name="header">
           
