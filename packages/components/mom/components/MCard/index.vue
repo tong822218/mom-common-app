@@ -3,6 +3,7 @@
     <view class="card-header" :class="{ 'left-icon': showLeftIcon }" @click="collapseHandler">
       <view class="w-full between-center pr33rpx">
         <slot name="header">
+          
           <view class="pl33rpx text-#333 text-30rpx font-bold mr-auto">{{ title }}</view>
         </slot>
         <view class="end-center">
