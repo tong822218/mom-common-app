@@ -1,6 +1,6 @@
 {
   "name": "mom-common-app",
-  "version": "1.0.88",
+  "version": "1.0.89",
   "private": false,
   "main": "packages/index.js",
   "scripts": {
