@@ -1,6 +1,6 @@
 <template>
   <view class="search-container" :key="$attrs.ref">
-    <view class="search-input" @click.stop="" >
+    <view class="search-input" @click.stop="">
       <u-input
         :placeholder="$attrs.placeholder || $i18n.t('common.scanOrEnterOrderFirst')"
         shape="circle"
@@ -12,6 +12,8 @@
         @blur="inputBlur"
         v-on="$listeners"
         v-bind="$attrs"
+        :selection-start="0"
+        :selection-end="selectEndIndex"
         @confirm="confirm"
       >
         <u-icon name="search" color="#CDCDCD" size="24" slot="prefix"></u-icon>
@@ -150,7 +152,7 @@ export default {
       default: null
     },
     // 回车后是否隐藏下拉框
-    confirmHideDrop:{
+    confirmHideDrop: {
       type: Boolean,
       default: true
     }
@@ -167,7 +169,8 @@ export default {
       searchListDomTop: 0,
       searchListDomBottom: 0,
       searchListDomHeight: 0,
-      inputRect: {}
+      inputRect: {},
+      selectEndIndex: 0,
     }
   },
   computed: {
@@ -176,7 +179,7 @@ export default {
       return !!this.api
     },
     // 是否本地搜索
-    localSearch(){
+    localSearch() {
       return !!(!this.api && this.options)
     },
     // 不支持搜索
@@ -208,7 +211,7 @@ export default {
   watch: {
     value: {
       handler: debounce(function (val) {
-      this.getSelectOptions(val)
+        this.getSelectOptions(val)
       }, 500),
       immediate: false
     }
@@ -289,7 +292,7 @@ export default {
     async getSelectOptions(val) {
       this.selectOptions = []
       if (this.api) {
-          val && (this.selectOptions = await this.getRemoteSearchOptions(val))
+        val && (this.selectOptions = await this.getRemoteSearchOptions(val))
       } else {
         this.selectOptions = await this.getLocalSearchOptions(val)
       }
@@ -317,9 +320,15 @@ export default {
 
     // input输入框回车事件
     confirm() {
-      if(this.confirmHideDrop){
+      if (this.confirmHideDrop) {
         this.hideDrop()
       }
+    },
+    selectAllText() {
+      this.focus = true
+      setTimeout(() => {
+        this.selectEndIndex = this.value.length
+      }, 100)
     },
 
     // 点击历史记录回调
@@ -361,7 +370,7 @@ export default {
       this.$mpaasScan({
         success: ({ result }) => {
           this.$emit('input', result)
-          if(this.confirmHideDrop){
+          if (this.confirmHideDrop) {
             this.hideDrop()
           }
           // if (this.$listeners.scan && typeof this.$listeners.scan === 'function') {
