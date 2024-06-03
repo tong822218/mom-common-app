@@ -170,7 +170,7 @@ export default {
       searchListDomBottom: 0,
       searchListDomHeight: 0,
       inputRect: {},
-      selectEndIndex: 0,
+      selectEndIndex: 0
     }
   },
   computed: {
@@ -249,9 +249,9 @@ export default {
     },
 
     // 文本框聚焦事件
-    inputFocus() {
+    inputFocus(noShowSearch) {
       this.focus = true
-      if (this.noSearch) return
+      if (this.noSearch || noShowSearch === false) return
       setTimeout(() => {
         this.showDrop()
         this.getSearchListRect()
@@ -325,7 +325,7 @@ export default {
       }
     },
     selectAllText() {
-      this.focus = true
+      this.inputFocus(false)
       setTimeout(() => {
         this.selectEndIndex = this.value.length
       }, 100)
