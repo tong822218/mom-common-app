@@ -62,7 +62,7 @@ import { getTemplateListByProduct, getTemplateDetail } from './api.js'
 import ChoseTemplate from './ChoseTemplate.vue'
 export default {
   name: 'CalmPrinter',
-  components: { vBarcode, vQr, ChoseTemplate },
+  components: { ChoseTemplate },
   props: {
     showPrintBtn: {
       type: Boolean,

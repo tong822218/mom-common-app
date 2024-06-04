@@ -6,7 +6,7 @@
     </view>
     <view class="flex flex-1 pl-52rpx center">
       <u-radio-group v-bind="$attrs" v-on="$listeners" placement="row">
-        <u-radio :label="item.label" :name="item.value" v-for="item in options" class="mx15rpx"></u-radio>
+        <u-radio :label="item.label" :key="item.value" :name="item.value" v-for="item in options" class="mx15rpx"></u-radio>
       </u-radio-group>
     </view>
   </view>

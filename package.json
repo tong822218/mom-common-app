@@ -1,10 +1,9 @@
 {
   "name": "mom-common-app",
-  "version": "1.0.96",
+  "version": "2.0.0",
   "private": true,
-  "main": "packages/index.js",
+  "main": "src/packages/index.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production UNI_PLATFORM=h5 vue-cli-service uni-build --mode prod --target lib --name mom-common-app --dest lib /packages/index.js",
     "yalc": "yalc push",
     "version": "node ./updateVersion.js",
     "dev": "npm run serve",
@@ -73,10 +72,14 @@
     "@dcloudio/uni-stacktracey": "^2.0.2-3080720230703001",
     "@dcloudio/uni-stat": "^2.0.2-3080720230703001",
     "@vue/shared": "^3.0.0",
-    "anynumber": "^1.0.2",
     "core-js": "^3.8.3",
+    "flyio": "^0.6.2",
+    "lodash.merge": "^4.6.2",
+    "anynumber": "^1.0.2",
     "html2canvas": "^1.4.1",
+    "uqrcodejs": "^4.0.6",
     "vue": ">= 2.6.14 < 2.7",
+    "vue-i18n": "^8.28.2",
     "vuex": "^3.2.0"
   },
   "devDependencies": {
@@ -96,24 +99,28 @@
     "babel-plugin-import": "^1.11.0",
     "copy-webpack-plugin": "^9.1.0",
     "cross-env": "^7.0.2",
-    "husky": "^9.0.11",
     "jest": "^25.4.0",
     "mini-types": "*",
     "miniprogram-api-typings": "*",
     "postcss-comment": "^2.0.0",
-    "pre-commit": "^1.2.2",
     "sass": "^1.65.1",
     "sass-loader": "^13.3.2",
     "unocss": "^0.57.1",
     "unocss-preset-weapp": "^0.56.1",
     "unocss-webpack-uniapp2": "^0.2.2",
-    "vue-template-compiler": ">= 2.6.14 < 2.7"
+    "vue-template-compiler": ">= 2.6.14 < 2.7",
+    "husky": "^9.0.11",
+    "pre-commit": "^1.2.2"
   },
+
   "browserslist": [
     "Android >= 4",
     "ios >= 9"
   ],
   "uni-app": {
     "scripts": {}
-  }
+  },
+  "files": [
+    "src/packages"
+  ]
 }

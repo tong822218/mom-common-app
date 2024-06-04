@@ -25,7 +25,7 @@
             class="second-tabs-item flex flex-1 center"
             :class="{ active: index === secondTabsIndex }"
             v-for="(item, index) in secondTabsOptions.list"
-            :Key="index"
+            :key="index"
             @click="secondTabsChange(item, index)"
           >
             {{ item.name }}
@@ -43,6 +43,7 @@
                 @click="btn.fun(item)"
                 :type="btn.type"
                 :customStyle="{ marginLeft: '20rpx' }"
+                :key="index"
                 v-for="btn in tabsOptions.list[tabsIndex].operate || []"
               >
                 {{ btn.label }}

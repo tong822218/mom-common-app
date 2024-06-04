@@ -9,7 +9,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/packages/components/uview-ui/index.scss";
+@import "./packages/components/uview-ui/index.scss";
 * {
   box-sizing: border-box;
 }

@@ -1,4 +1,3 @@
-console.log(11111111111);
 export * from './components/index.js'
 export * from './utils/index.js'
 export * from './mixins/index.js'
