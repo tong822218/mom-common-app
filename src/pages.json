@@ -1,0 +1,87 @@
+{
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^u-(.*)": "@/packages/components/uview-ui/components/u-$1/u-$1.vue"
+    }
+  },
+  "pages": [
+    {
+      "path": "pages/login/index",
+      "style": {
+        "backgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "white",
+        "app-plus": {
+          "titleNView": false
+        }
+      }
+    },
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white",
+        "app-plus": {
+          "animationType": "slide-in-bottom"
+        }
+      }
+    },
+    {
+      "path": "pages/setting/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white",
+        "app-plus": {
+          "animationType": "slide-in-bottom"
+        }
+      }
+    },
+    {
+      "path": "pages/user/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white",
+        "app-plus": {
+          "animationType": "slide-in-bottom"
+        }
+      }
+    }
+    
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "MOM制造运营管理平台",
+    "navigationBarBackgroundColor": "#1989FA",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#1883E6",
+    "backgroundColor": "#EEEEEE",
+    "list": [
+      {
+        "text": "%index.title1%",
+        "pagePath": "pages/index/index",
+        "iconPath": "static/login/hd.png",
+        "selectedIconPath": "static/login/h.png"
+      },
+      {
+        "text": "%index.title3%",
+        "pagePath": "pages/user/index",
+        "iconPath": "static/login/wd.png",
+        "selectedIconPath": "static/login/w.png"
+      }
+    ]
+  },
+  "condition": {
+    //模式配置，仅开发期间生效
+    "current": 0, //当前激活的模式(list 的索引项)
+    "list": [
+      {
+        "name": "", //模式名称
+        "path": "", //启动页面，必选
+        "query": "" //启动参数，在页面的onLoad函数里面得到
+      }
+    ]
+  }
+}
