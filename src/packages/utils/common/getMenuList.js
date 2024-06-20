@@ -2,6 +2,7 @@
 export function getMenuList(store) {
   UniService.subscribe("getMenuList", {
     success: (data) => {
+      console.log("包内getMenuList menuList")
       uni.setStorageSync("menuList",data);
     },
     fail: (e) => {
