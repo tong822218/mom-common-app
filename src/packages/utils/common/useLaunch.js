@@ -48,6 +48,10 @@ export function useLaunch(store) {
           // app基座是通过哪个平台启动的，默认是app
           store.commit('SET_PLATFORM', sub[1] || 'app')
           break
+          case 'language':
+          // app基座是通过哪个平台启动的，默认是app
+          store.commit('SET_LANGUAGE', sub[1] || 'zh-Hans')
+          break
         default:
           break
       }
