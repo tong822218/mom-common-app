@@ -53,7 +53,7 @@ export function useLaunch(store) {
       }
     })
     // 获取菜单，已展平的
-    getMenuList(store)
+    // getMenuList(store)
 
   }
 }

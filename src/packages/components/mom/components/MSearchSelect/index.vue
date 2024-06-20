@@ -46,18 +46,23 @@
               <u-cell>
                 <view class="list-item" slot="title" @click.native.stop="handerClick(item)">
                   <slot name="option" v-bind="item">
-                    <view class="flex-a-c">
-                      <u-icon class="icon" v-if="api" name="search"></u-icon>
-                      <view class="">
-                        <text
-                          class="text"
-                          :key="ite + i"
-                          :class="[(value || '').split('').includes(ite) ? 'color1' : 'color2']"
-                          v-for="(ite, i) in (item[valueKey] || '').split('')"
-                        >
-                          {{ ite }}
-                        </text>
+                    <view class="between-center w-full">
+                      <view class="flex items-center">
+                        <u-icon class="icon" v-if="api" name="search"></u-icon>
+                        <view class="">
+                          <text
+                            class="text"
+                            :key="ite + i"
+                            :class="[(value || '').split('').includes(ite) ? 'color1' : 'color2']"
+                            v-for="(ite, i) in (item[valueKey] || '').split('')"
+                          >
+                            {{ ite }}
+                          </text>
+                        </view>
                       </view>
+                      <view v-if="item.searchOrderTypeName" class="ml-auto bg-#EEF7FF p4rpx rounded-4rpx text-#5A6F82 text-24rpx">{{
+                        item.searchOrderTypeName
+                      }}</view>
                     </view>
                   </slot>
                 </view>
@@ -171,7 +176,7 @@ export default {
       searchListDomHeight: 0,
       inputRect: {},
       selectEndIndex: 0,
-      noShowSearch:false // 临时变量，用来临时标志一下，此次聚焦是由于全选文字造成，不应该显示搜索下拉框
+      noShowSearch: false // 临时变量，用来临时标志一下，此次聚焦是由于全选文字造成，不应该显示搜索下拉框
     }
   },
   computed: {
