@@ -310,7 +310,7 @@ export default {
       if (this.beforeRequest && typeof this.beforeRequest === 'function') {
         if (!this.beforeRequest()) return this.selectOptions
       }
-      let res = await this.api(this.searchParams)
+      let res = await this.api({ ...this.searchParams, [this.valueKey]: val })
       let list = this.apiResponse ? this.apiResponse(res) : res.data.result
       return list
     },
