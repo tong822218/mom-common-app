@@ -1,6 +1,6 @@
 <template>
   <view class="search-container" :key="$attrs.ref">
-    <view class="search-input" @click.stop="">
+    <view class="search-input">
       <u-input
         :placeholder="$attrs.placeholder || $i18n.t('common.scanOrEnterOrderFirst')"
         shape="circle"
