@@ -1,6 +1,6 @@
 <template>
   <view class="search-container" :key="$attrs.ref">
-    <view class="search-input">
+    <view class="search-input" @click.stop="">
       <u-input
         :placeholder="$attrs.placeholder || $i18n.t('common.scanOrEnterOrderFirst')"
         shape="circle"
@@ -20,7 +20,7 @@
         <u-icon name="scan" v-if="showScan" @click="handleScan" color="#CDCDCD" size="24" slot="suffix"></u-icon>
       </u-input>
     </view>
-    <view class="searchList-pack" v-if="isShowSearch" :style="searchListDomStyle">
+    <view class="searchList-pack" v-show="isShowSearch" :style="searchListDomStyle">
       <view class="card" @click.stop="">
         <!-- 最近搜索历史 -->
         <view v-if="historyList.length && showHistory && api">
@@ -258,6 +258,9 @@ export default {
     inputFocus() {
       this.focus = true
       if (this.noSearch || this.noShowSearch) return
+      document.querySelectorAll('.searchList-pack').forEach(ele=>{
+        ele.style.display = 'none'
+      })
       setTimeout(() => {
         this.showDrop()
         this.getSearchListRect()
