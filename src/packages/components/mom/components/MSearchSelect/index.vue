@@ -29,7 +29,7 @@
           </view>
           <view class="history">
             <view class="history-item" :key="index" v-for="(ite, index) in historyList" @click.native.stop="handerHistory(ite)">
-              {{ formatterHistory(ite) }}
+              {{ formatterHistory(ite.label) }}
             </view>
             <view @click.native.stop="deleteHistory">
               <u-icon name="close-circle-fill" color="#B6C0C9"></u-icon>
@@ -51,13 +51,24 @@
                         <u-icon class="icon" v-if="api" name="search"></u-icon>
                         <view class="">
                           <text
+                            v-if="labelKey"
+                            class="text"
+                            :key="ite + i + 1"
+                            :class="[(value || '').toLowerCase().split('').includes(ite.toLowerCase()) ? 'color1' : 'color2']"
+                            v-for="(ite, i) in (item[labelKey] || '').split('')"
+                          >
+                            {{ ite }}
+                          </text>
+                          <text v-if="labelKey">(</text>
+                          <text
                             class="text"
                             :key="ite + i"
-                            :class="[(value || '').split('').includes(ite) ? 'color1' : 'color2']"
+                            :class="[(value || '').toLowerCase().split('').includes(ite.toLowerCase()) ? 'color1' : 'color2']"
                             v-for="(ite, i) in (item[valueKey] || '').split('')"
                           >
                             {{ ite }}
                           </text>
+                          <text v-if="labelKey">)</text>
                         </view>
                       </view>
                       <view v-if="item.searchOrderTypeName" class="ml-auto bg-#EEF7FF p4rpx rounded-4rpx text-#5A6F82 text-24rpx">{{
@@ -130,12 +141,20 @@ export default {
       default: 'somePage'
     },
     /**
-     * 搜索结果展示的字段
+     * 搜索结果展示的字段 value
      */
 
     valueKey: {
       type: String,
       default: 'somePage'
+    },
+    /**
+     * 搜索结果展示的字段 label
+     */
+
+    labelKey: {
+      type: String,
+      default: ''
     },
     /**
      * 显示搜索历史，只有远程搜索支持搜索历史
@@ -258,7 +277,7 @@ export default {
     inputFocus() {
       this.focus = true
       if (this.noSearch || this.noShowSearch) return
-      document.querySelectorAll('.searchList-pack').forEach(ele=>{
+      document.querySelectorAll('.searchList-pack').forEach((ele) => {
         ele.style.display = 'none'
       })
       setTimeout(() => {
@@ -272,12 +291,19 @@ export default {
       this.focus = false
     },
 
-    // 更新历史记录
+    // 更新历史记录-已经废弃
     updateHistory(val) {
+      
+    },
+    // 更新历史记录
+    addHistory(val) {
+      const value = val || this.searchParams[this.valueKey]
       // 列表中已经存在就不需要记录
-      if (this.historyList.find((x) => x === val || x === this.value)) return
+      if (this.historyList.find((x) => x.value.toLowerCase() === value.toLowerCase())) return
+      const item = this.selectOptions.find((x) => x[this.valueKey].toLowerCase() === value.toLowerCase())
+      const obj = item ? { label: item[this.labelKey], value: item[this.valueKey] } : { label: value, value: value }
       //最前方插入
-      this.historyList.unshift(val || this.value)
+      this.historyList.unshift(obj)
 
       //  只取前二
       this.historyList = this.historyList.slice(0, 2)
@@ -332,6 +358,7 @@ export default {
       if (this.confirmHideDrop) {
         this.hideDrop()
       }
+      this.addHistory(this.value)
     },
     selectAllText() {
       this.noShowSearch = true
@@ -344,7 +371,8 @@ export default {
 
     // 点击历史记录回调
     handerHistory(data) {
-      const obj = { [this.valueKey]: data }
+      const obj = { [this.valueKey]: data.value }
+      if(this.labelKey) obj[this.labelKey] = data.label
       this.hideDrop()
       this.$emit('select', obj)
     },
@@ -353,6 +381,7 @@ export default {
     handerClick(data) {
       this.hideDrop()
       this.$emit('select', data)
+      this.addHistory(data[this.valueKey])
     },
 
     // 删除搜索历史
