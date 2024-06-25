@@ -249,6 +249,7 @@
 			onBlur(event) {
 				// 对输入值进行格式化
 				const value = this.format(event.detail.value)
+				this.emitChange(value)
 				// 发出blur事件
 				this.$emit(
 					'blur',{
