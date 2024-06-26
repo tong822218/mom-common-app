@@ -292,16 +292,14 @@ export default {
     },
 
     // 更新历史记录-已经废弃
-    updateHistory(val) {
-      
-    },
+    updateHistory(val) {},
     // 更新历史记录
     addHistory(val) {
       const value = val || this.searchParams[this.valueKey]
       // 列表中已经存在就不需要记录
       if (this.historyList.find((x) => x.value.toLowerCase() === value.toLowerCase())) return
       const item = this.selectOptions.find((x) => x[this.valueKey].toLowerCase() === value.toLowerCase())
-      const obj = item ? { label: item[this.labelKey], value: item[this.valueKey] } : { label: value, value: value }
+      const obj = item && this.labelKey ? { label: item[this.labelKey], value: item[this.valueKey] } : { label: value, value: value }
       //最前方插入
       this.historyList.unshift(obj)
 
@@ -372,7 +370,7 @@ export default {
     // 点击历史记录回调
     handerHistory(data) {
       const obj = { [this.valueKey]: data.value }
-      if(this.labelKey) obj[this.labelKey] = data.label
+      if (this.labelKey) obj[this.labelKey] = data.label
       this.hideDrop()
       this.$emit('select', obj)
     },
