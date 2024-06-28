@@ -270,7 +270,7 @@ export default {
     // 格式化历史
     formatterHistory(str) {
       if (!str || str.length < 16) return str
-      return str.substring(0, 8) + '...' + str.substring(str.length - 6)
+      return str.substring(0, 6) + '...' + str.substring(str.length - 6)
     },
 
     // 文本框聚焦事件

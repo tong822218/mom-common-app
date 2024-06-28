@@ -11,4 +11,5 @@ import MCard from './components/MCard/index.vue'
 import MPopCenter from './components/MPopCenter/index.vue'
 import MPopTop from './components/MPopTop/index.vue'
 import MSearchSelect from './components/MSearchSelect/index.vue'
-export { MButton, MList, MListItem, MPanel, MPop, MScrollList, MSearch, MSearchPop, MTabList, MCard, MPopCenter, MPopTop, MSearchSelect }
+import MSelect from './components/MSelect/index.vue'
+export { MButton, MList, MListItem, MPanel, MPop, MScrollList, MSearch, MSearchPop, MTabList, MCard, MPopCenter, MPopTop, MSearchSelect, MSelect }

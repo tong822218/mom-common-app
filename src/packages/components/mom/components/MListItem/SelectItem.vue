@@ -3,7 +3,7 @@
     <view class="flex text-5A6F82 text-28rpx" :style="{ width: textWidth }">
       <text :class="{ required }">{{ text }}</text>
     </view>
-    <view class="flex flex-1 text-333 text-28rpx items-center justify-center" :style="{ textAlign }" @click="$listeners.click">
+    <view class="flex flex-1 text-333 text-28rpx items-center justify-center" @click="$listeners.click">
       <view class="flex flex-1" :style="valueStyle">
         <text class="">{{ value }}</text>
         <text v-if="subValue" class="text-999">({{ subValue }})</text>
@@ -26,6 +26,10 @@ export default {
     textAlign: {
       type: String,
       default: 'left'
+    },
+    valueAlign: {
+      type: String,
+      default: 'right'
     },
     // value
     value: {
@@ -54,7 +58,7 @@ export default {
   computed: {
     valueStyle() {
       return {
-        justifyContent: this.textAlign === 'left' ? 'flex-start' : this.textAlign === 'center' ? 'center' : 'flex-end'
+        justifyContent: this.valueAlign === 'left' ? 'flex-start' : this.valueAlign === 'center' ? 'center' : 'flex-end'
       }
     }
   },
