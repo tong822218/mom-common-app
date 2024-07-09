@@ -31,7 +31,7 @@
         :value="value"
       ></date-time-item>
       <text-area-item :text="text" v-else-if="type == 'textarea'" :textWidth="textWidth" v-bind="$attrs" v-on="$listeners"></text-area-item>
-      <input-item :textWidth="textWidth" :text="text" v-bind="$attrs" v-on="$listeners" v-else></input-item>
+      <input-item :textWidth="textWidth" :text="text" :value="value" v-bind="$attrs" v-on="$listeners" v-else></input-item>
     </template>
     <template v-else>
       <img-list :edit="edit" :text="text" :maxCount="maxCount" :value="value" v-if="type == 'img'"></img-list>

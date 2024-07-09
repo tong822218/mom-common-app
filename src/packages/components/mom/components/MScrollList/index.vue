@@ -59,6 +59,9 @@ export default {
     }
   },
   methods: {
+    getList(){
+      return this.list
+    },
     refresh(reset) {
       this.loadmore(reset)
     },

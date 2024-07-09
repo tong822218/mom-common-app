@@ -5,7 +5,9 @@
       <text v-if="subText" class="text-333 ml10rpx">{{ subText }}</text>
     </view>
     <view class="flex flex-1 pl-52rpx">
-      <u-input :fontSize="$attrs.fontSize || '28rpx'" v-bind="$attrs" v-on="$listeners" :value="value" :placeholder="placeholder"></u-input>
+      <u-input :fontSize="$attrs.fontSize || '28rpx'" v-bind="$attrs" v-on="$listeners" :value="value" :placeholder="placeholder">
+        <u-icon size="24" v-if="showScan" slot="suffix" color="#B6C0C9" :name="$attrs.prefixIcon || 'scan'" @click="scan"></u-icon>
+      </u-input>
     </view>
   </view>
 </template>
@@ -35,6 +37,10 @@ export default {
       type: Boolean,
       default: false
     },
+    showScan: {
+      type: Boolean,
+      default: false
+    },
     bottomLine: {
       type: Boolean,
       default: true
@@ -48,7 +54,18 @@ export default {
       return this.$attrs.placeholder || `输入${this.text}`
     }
   },
-  methods: {}
+  created() {
+  },
+  methods: {
+    scan() {
+      this.$mpaasScan({
+        success: ({ result }) => {
+          this.$emit('input', result)
+          this.$emit('scan', result, this.value)
+        }
+      })
+    }
+  }
 }
 </script>
 

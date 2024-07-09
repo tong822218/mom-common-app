@@ -1,5 +1,5 @@
 <template>
-  <view class="m-list-item-number-item" :style="{ height }" @click.native.stop="">
+  <view class="m-list-item-number-item" :style="{ height, borderBottom: bottomLine ? 'solid 1px #f3f3f5' : 'none' }" @click.native.stop="">
     <view class="flex text-5A6F82 text-28rpx" :style="{ width: textWidth }">
       <text :class="{ required }">{{ text }}</text>
       <text v-if="subText" class="text-333 ml10rpx">{{ subText }}</text>
@@ -40,6 +40,10 @@ export default {
     required: {
       type: Boolean,
       default: false
+    },
+    bottomLine: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
