@@ -34,14 +34,14 @@
         ></u-image>
       </view>
     </view>
-    <u-empty v-else mode="data" class="w-full" :icon="require('@/static/list1.png')" />
+    <u-empty v-else mode="data" class="w-full" :icon="require('../../images/list1.png')" />
   </m-pop-top>
 </template>
 
 <script>
 import MSearch from '../MSearch'
 import MPopTop from '../MPopTop'
-import { debounce } from '@/utils/judge.js'
+import { debounce } from '../../../../utils/tool.js'
 export default {
   name: 'MSelect',
   components: { MPopTop, MSearch },
