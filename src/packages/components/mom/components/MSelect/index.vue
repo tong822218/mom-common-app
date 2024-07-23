@@ -79,6 +79,7 @@ export default {
     show(val) {
       if (val) {
         this.curValue = this.value
+        this.searchValue = ''
         this.filter('')
       }
     },
