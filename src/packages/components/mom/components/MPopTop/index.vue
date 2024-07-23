@@ -44,15 +44,15 @@ export default {
     },
     title: {
       type: String,
-      default: '提示'
+      default: i18n.t('momComponent.tips')
     },
     confirmText: {
       type: String,
-      default: '确认'
+      default: i18n.t('mesProcessCode.confirm')
     },
     cancelText: {
       type: String,
-      default: '取消'
+      default: i18n.t('momComponent.cancel')
     }
   },
   data() {

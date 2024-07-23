@@ -25,7 +25,7 @@
         <!-- 最近搜索历史 -->
         <view v-if="historyList.length && showHistory && api">
           <view class="header">
-            <view class="title">搜索历史</view>
+            <view class="title">{{ $t('momComponent.searchHistory') }}</view>
           </view>
           <view class="history">
             <view class="history-item" :key="index" v-for="(ite, index) in historyList" @click.native.stop="handerHistory(ite)">
@@ -467,7 +467,7 @@ export default {
         height: 40rpx;
 
         .title {
-          width: 108rpx;
+          padding: 0 10rpx;
           height: 33rpx;
           background: #dbf4ff;
           border-radius: 4rpx 4rpx 4rpx 4rpx;

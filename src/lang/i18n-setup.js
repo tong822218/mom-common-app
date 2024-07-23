@@ -1,18 +1,20 @@
 import i18n from "./index";
 import store from "@/store";
-import zn from "@/lang/zn.js";
-import en from "@/lang/en.js";
+import zn from "@/lang/zh.json";
+import en from "@/lang/en.json";
 import { getLanguage } from "@/api/login.js";
 import merge from "lodash.merge";
 
 export function loadLanguageAsync() {
+  const loclLang = uni.getStorageSync('lang')
+  if(!loclLang) uni.setStorageSync('lang', 'zh-Hans')
   const lang = store.getters.language;
   i18n.locale = lang;
   uni.showLoading({
     title: lang == en ? "loading..." : "加载中",
     mask: true,
   });
-  uni.setLocale(lang);
+  // uni.setLocale(lang);
   return new Promise(async (resolve, reject) => {
     uni.hideLoading();
     const LANGUAGE = [

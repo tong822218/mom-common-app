@@ -14,7 +14,7 @@
     <view class="m-panel-content" v-show="isExpand || !showExpand">
       <slot></slot>
       <view class="center py17rpx" v-if="isExpand || showExpand">
-        <view class="up center" @click="expand">收起</view>
+        <view class="up center" @click="expand">{{ $t('momComponent.up') }}</view>
       </view>
     </view>
   </view>

@@ -5,7 +5,7 @@
         <text class="pop-title text-5A6F82 text-28rpx center h100rpx">{{ title }}</text>
         <view class="flex flex-1 h0" ><slot></slot></view>
         <view class="h142rpx px50rpx center" v-if="showButtons" v-hide-on-keyboard-show>
-          <m-button @click="close" v-if="showCancel" type="info" :customStyle="{ width: '100%', height: '75rpx', margin: '0 15rpx' }">取消</m-button>
+          <m-button @click="close" v-if="showCancel" type="info" :customStyle="{ width: '100%', height: '75rpx', margin: '0 15rpx' }">{{ $t('momComponent.cancel') }}</m-button>
           <m-button @click="confirm" :customStyle="{ width: '100%', height: '75rpx', margin: '0 15rpx' }">{{ confirmText }}</m-button>
         </view>
       </view>
@@ -27,7 +27,7 @@ export default {
     },
     title: {
       type: String,
-      default: '请选择'
+      default: ''
     },
     showScan: {
       type: Boolean,
@@ -35,7 +35,7 @@ export default {
     },
     confirmText: {
       type: String,
-      default: '确认'
+      default: i18n.t('mesProcessCode.confirm')
     },
     searchKey: {
       type: String,

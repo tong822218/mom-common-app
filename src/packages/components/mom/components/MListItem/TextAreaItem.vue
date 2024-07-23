@@ -4,7 +4,7 @@
       <text :class="{ required }">{{ text }}</text>
     </view>
     <view class="flex flex-1 pt17rpx">
-      <u-textarea v-bind="$attrs" v-on="$listeners" :value="value" :placeholder="`输入${text}`"></u-textarea>
+      <u-textarea v-bind="$attrs" v-on="$listeners" :value="value" :placeholder="$t('momComponent.inputPlaceHolder', [text])"></u-textarea>
     </view>
   </view>
 </template>

@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import store from '@/store';
 import VueI18n from 'vue-i18n';
-import zn from '@/lang/zn.js';
-import en from '@/lang/en.js';
+import zn from '@/lang/zh.json';
+import en from '@/lang/en.json';
 Vue.use(VueI18n); // 全局注册国际化包
 // 准备翻译的语言环境信息
 const i18n = new VueI18n({

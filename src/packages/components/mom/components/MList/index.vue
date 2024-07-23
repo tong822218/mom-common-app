@@ -4,7 +4,7 @@
       <view v-for="(item, index) in list" :key="index">
         <slot :item="item" :index="index"></slot>
       </view>
-      <u-loadmore :status="loadMoreStatus" nomoreText="已到底部" class="pb30rpx" color="#B6C0C9" />
+      <u-loadmore :status="loadMoreStatus" :nomoreText="$t('momComponent.alreadToBottom')" class="pb30rpx" color="#B6C0C9" />
     </view>
     <u-empty v-else mode="search" class="h-560rpx"></u-empty>
   </u-list>

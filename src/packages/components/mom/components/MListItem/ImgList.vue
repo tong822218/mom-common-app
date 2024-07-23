@@ -66,7 +66,7 @@ export default {
         this.fileList.push({
           ...item,
           status: 'uploading',
-          message: '上传中'
+          message: this.$t('momComponent.uploading')
         })
       })
       for (let i = 0; i < lists.length; i++) {

@@ -41,7 +41,7 @@
           </m-list>
         </view>
         <view class="h142rpx px50rpx center" v-hide-on-keyboard-show>
-          <m-button @click="close" type="info" :customStyle="{ width: '100%', height: '75rpx', margin: '0 15rpx' }">取消</m-button>
+          <m-button @click="close" type="info" :customStyle="{ width: '100%', height: '75rpx', margin: '0 15rpx' }">{{ $t('momComponent.cancel') }}</m-button>
           <m-button @click="confirm" :customStyle="{ width: '100%', height: '75rpx', margin: '0 15rpx' }">{{ confirmText }}</m-button>
         </view>
       </view>
@@ -69,7 +69,7 @@ export default {
     // 弹出框顶部标题
     title: {
       type: String,
-      default: '请选择'
+      default: i18n.t('momComponent.pleaseChose')
     },
     // 显示扫描图标
     showScan: {
@@ -79,7 +79,7 @@ export default {
     // 确认按钮文本
     confirmText: {
       type: String,
-      default: '确认'
+      default: i18n.t('mesProcessCode.confirm')
     },
     // 其它搜索条件
     otherParams: {
