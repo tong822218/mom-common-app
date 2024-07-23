@@ -48,7 +48,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: i18n.t('momComponent.pleaseChose')
+      default: () => $i18n.t('momComponent.pleaseChose')
     },
     show: {
       type: Boolean,

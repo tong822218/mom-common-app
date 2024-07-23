@@ -35,7 +35,7 @@ export default {
     },
     confirmText: {
       type: String,
-      default: i18n.t('mesProcessCode.confirm')
+      default:()=> $i18n.t('mesProcessCode.confirm')
     },
     searchKey: {
       type: String,

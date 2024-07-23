@@ -45,15 +45,15 @@ export default {
     },
     title: {
       type: String,
-      default: i18n.t('momComponent.tips')
+      default: ()=>$i18n.t('momComponent.tips')
     },
     confirmText: {
       type: String,
-      default: i18n.t('mesProcessCode.confirm')
+      default: ()=>$i18n.t('mesProcessCode.confirm')
     },
     cancelText: {
       type: String,
-      default: i18n.t('momComponent.cancel')
+      default: ()=>$i18n.t('momComponent.cancel')
     }
   },
   data() {

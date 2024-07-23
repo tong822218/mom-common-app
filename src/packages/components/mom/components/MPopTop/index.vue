@@ -12,8 +12,20 @@
       <view class="center text-#5A6F82 text-30rpx h100rpx border-bottom">{{ title }}</view>
       <slot></slot>
       <view class="flex justify-center mt42rpx" v-if="showButtons">
-        <m-button v-if="showCancel" :text="cancelText" color="#F3F5FB" @click="close" :customStyle="{ padding: '19rpx 33rpx', height: 'auto', color: '#333' }"></m-button>
-        <m-button v-if="showConfirm" :text="confirmText" @click="confirm" class="ml25rpx" :customStyle="{ padding: '19rpx 33rpx', height: 'auto', marginLeft: '25rpx' }"></m-button>
+        <m-button
+          v-if="showCancel"
+          :text="cancelText"
+          color="#F3F5FB"
+          @click="close"
+          :customStyle="{ padding: '19rpx 33rpx', height: 'auto', color: '#333' }"
+        ></m-button>
+        <m-button
+          v-if="showConfirm"
+          :text="confirmText"
+          @click="confirm"
+          class="ml25rpx"
+          :customStyle="{ padding: '19rpx 33rpx', height: 'auto', marginLeft: '25rpx' }"
+        ></m-button>
       </view>
     </view>
   </u-popup>
@@ -44,15 +56,15 @@ export default {
     },
     title: {
       type: String,
-      default: i18n.t('momComponent.tips')
+      default: () => $i18n.t('momComponent.tips')
     },
     confirmText: {
       type: String,
-      default: i18n.t('mesProcessCode.confirm')
+      default: () => $i18n.t('mesProcessCode.confirm')
     },
     cancelText: {
       type: String,
-      default: i18n.t('momComponent.cancel')
+      default: () => $i18n.t('momComponent.cancel')
     }
   },
   data() {

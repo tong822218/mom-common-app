@@ -63,7 +63,7 @@ export default {
     },
     btnText: {
       type: Array,
-      default: () => [$i18n.t("common.cancel"), $i18n.t("common.confirm")],
+      default: () => [uni.$i18n.t("common.cancel"), uni.$i18n.t("common.confirm")],
     },
     tapModalClose: {
       type: Boolean,
