@@ -182,7 +182,7 @@ export default {
           }
         }
       }
-      console.log(filterDevices2);
+      console.log(filterDevices2)
       return filterDevices2
     }
   },
@@ -271,7 +271,6 @@ export default {
             options.imgData = imgData
           }
         }
-       
       } catch (error) {
         this.loading = false
         uni.showToast({
@@ -338,6 +337,8 @@ export default {
       })
     },
     print() {
+      // #ifdef APP-PLUS
+      console.log('打印开始')
       UniService.subscribe('getConnectedBluetoothDevices', {
         success: async (res) => {
           //若没有已连接设备，弹框搜索设备
@@ -364,8 +365,22 @@ export default {
             this.isPrinting = false
             uni.hideLoading()
           }
+        },
+        fail: (res) => {
+          uni.showToast({
+            title: '连接打印设备出错',
+            icon: 'none'
+          })
         }
       })
+      // #endif
+
+      //// #ifdef H5
+      uni.showToast({
+        title: '请在app端打印',
+        icon: 'none'
+      })
+      // #endif
     },
 
     async printEnd() {

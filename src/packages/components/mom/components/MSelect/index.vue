@@ -17,11 +17,14 @@
         class="shrink-0 start-center h100rpx text-30rpx text-#333 border-bottom"
         @click="choose(item)"
       >
-        <template v-if="showLabel">
+        <template v-if="optionType == 'labelAndValue'">
           <view :style="{ color: item[valueKey] === curValue ? '#0066FF' : '#333' }">{{ item[labelKey] }}</view>
           <view class="text-#999" :style="{ color: item[valueKey] === curValue ? '#0066FF' : '#999' }">({{ item[valueKey] }})</view>
         </template>
-        <template v-else>
+        <template v-if="optionType == 'label'">
+          <view :style="{ color: item[valueKey] === curValue ? '#0066FF' : '#333' }">{{ item[labelKey] }}</view>
+        </template>
+        <template v-if="optionType == 'value'">
           <view :style="{ color: item[valueKey] === curValue ? '#0066FF' : '#333' }">{{ item[valueKey] }}</view>
         </template>
         <u-image
@@ -62,10 +65,6 @@ export default {
       type: String | Number,
       default: ''
     },
-    showLabel: {
-      type: Boolean,
-      default: true
-    },
     valueKey: {
       type: String,
       default: 'value'
@@ -73,6 +72,11 @@ export default {
     labelKey: {
       type: String,
       default: 'label'
+    },
+    // 展示形式，label:只展示label,value:只展示value, labelAndValue:展示label和value
+    optionType: {
+      type: String,
+      default: 'labelAndValue'
     }
   },
   watch: {
