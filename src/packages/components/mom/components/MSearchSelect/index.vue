@@ -465,7 +465,7 @@ export default {
       .header {
         width: 100%;
         height: 40rpx;
-
+        display: flex;
         .title {
           padding: 0 10rpx;
           height: 33rpx;

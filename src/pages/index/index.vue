@@ -1,7 +1,7 @@
 <template>
   <view class="pageIndex px32rpx py18rpx">
     <view class="center h100px">测试demo页面</view>
-    <!-- <m-search-select
+    <m-search-select
       ref="searchRef"
       showHistory
       class="flex-1 mr25rpx"
@@ -21,7 +21,7 @@
           ><view class="text-#666"> ({{ item.processCode }})</view></view
         >
       </template>
-    </m-search-select> -->
+    </m-search-select>
     <MSelect v-model="searchData.processCode"></MSelect>
   </view>
 </template>
