@@ -375,7 +375,7 @@ export default {
       })
       // #endif
 
-      //// #ifdef H5
+      // #ifdef H5
       uni.showToast({
         title: '请在app端打印',
         icon: 'none'
