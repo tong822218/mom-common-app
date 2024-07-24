@@ -337,8 +337,14 @@ export default {
       })
     },
     print() {
-      // #ifdef APP-PLUS
-      console.log('打印开始')
+      const appStart = this.$store.getters.isAppStart
+      if(!appStart) {
+        return uni.showToast({
+          title: '请在app端打印',
+          icon: 'none'
+        })
+      }
+
       UniService.subscribe('getConnectedBluetoothDevices', {
         success: async (res) => {
           //若没有已连接设备，弹框搜索设备
@@ -373,14 +379,6 @@ export default {
           })
         }
       })
-      // #endif
-
-      // #ifdef H5
-      uni.showToast({
-        title: '请在app端打印',
-        icon: 'none'
-      })
-      // #endif
     },
 
     async printEnd() {
