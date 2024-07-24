@@ -4,8 +4,8 @@
       <text>{{ text }}</text>
       <text v-if="subText" class="text-333 ml10rpx">{{ subText }}</text>
     </view>
-    <view class="flex flex-1 text-333 text-28rpx" :style="{ textAlign }">
-      <text class="flex-1" v-if="!$slots.value">{{ value }}</text>
+    <view class="flex flex-1 text-333 text-28rpx w0" :style="{ textAlign }">
+      <text class="flex-1 w0" v-if="!$slots.value">{{ value }}</text>
       <text v-if="subValue && !$slots.value" class="text-999">({{ subValue }})</text>
       <slot name="status"></slot>
       <slot name="value"></slot>
