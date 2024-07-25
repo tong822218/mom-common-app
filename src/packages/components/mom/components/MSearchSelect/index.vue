@@ -254,7 +254,10 @@ export default {
   methods: {
     // 显示下拉框
     showDrop() {
-      this.isShowSearch = true
+      this.isShowSearch = false
+      setTimeout(() => {
+        this.isShowSearch = true
+      }, 10)
     },
 
     // 隐藏下拉框
