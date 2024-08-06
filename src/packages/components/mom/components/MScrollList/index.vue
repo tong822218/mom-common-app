@@ -107,6 +107,7 @@ export default {
           }
         })
         .catch((err) => {
+          this.list = []
           this.loadMoreStatus = 'nomore'
         })
     }
